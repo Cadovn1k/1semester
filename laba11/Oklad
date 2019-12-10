@@ -16,14 +16,13 @@ public class Oklad extends Person {
 	}
 
 	public double getPrem() {
+		if (prem >= 1)
+			prem /= 100;
 		return prem;
 	}
 
 	public void setPrem(double prem) {
-		if (prem <= 1)
-			this.prem = prem;
-		else
-			this.prem = prem / 100;
+		this.prem = prem;
 	}
 
 	public Oklad() {
@@ -37,7 +36,6 @@ public class Oklad extends Person {
 		this.okl = inp.nextDouble();
 		System.out.println("Введите размер % премии : ");
 		this.prem = inp.nextDouble();
-		System.out.println("Получаемая на руки заработная плата = " + itog());
 	}
 
 	public double zpwithpr() {
@@ -54,6 +52,6 @@ public class Oklad extends Person {
 
 	@Override
 	public String toString() {
-		return super.toString() + ", оклад : " + okl + ", премия :" + prem + ", З/п на руки : " + itog();
+		return super.toString() + ", оклад : " + okl + ", премия : " + prem + "%, З/п на руки : " + itog();
 	}
 }
