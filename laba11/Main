@@ -1,0 +1,35 @@
+package laba11;
+
+import java.util.Scanner;
+
+public class Main {
+	static Scanner inp;
+
+	public static void main(String[] args) {
+		inp = new Scanner(System.in);
+		Person a = new Person();
+		System.out.println("Проведем тест");
+		a.read();
+		a.write();
+		System.out.println("Возраст = " + a.old());
+		System.out.println("Какое количетсов людей, вы будете вводить?");
+		int kolvo = inp.nextInt();
+		Person mas[] = new Person[kolvo];
+		for (int i = 0; i < mas.length; i++) {
+			mas[i] = new Person();
+			mas[i].read();
+		}
+		for (int i = 0; i < mas.length; i++) {
+			System.out.println(mas[i].toString());
+		}
+		Oklad b = new Oklad();
+		b.zpandpr();
+		System.out.println(b.toString());
+		Payperhour c = new Payperhour();
+		c.perhour();
+		System.out.println(c.toString());
+		Schoolkid d = new Schoolkid();
+		d.school();
+		System.out.println(d.toString());
+	}
+}
