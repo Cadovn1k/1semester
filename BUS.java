@@ -1,0 +1,85 @@
+package laba12;
+
+import java.util.Scanner;
+
+public class BUS extends Ground {
+	static Scanner inp;
+	private double places;
+	private double route;
+	private double price;
+
+	public BUS() {
+	}
+
+	public double getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(double places) {
+		this.places = places;
+	}
+
+	public double getRoute() {
+		return route;
+	}
+
+	public void setRoute(double route) {
+		this.route = route;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public void begin() {
+		if (getMs() == 0) {
+			System.out.println("Гони шеф!");
+			setMs(10);
+		}
+	}
+
+	public void addms() {
+		super.addms();
+	}
+
+	public void reducems() {
+		super.reducems();
+	}
+
+	@Override
+	public void end() {
+		if (getMs() != 0) {
+			System.out.println("Останавливаемся");
+			while (getMs() > 0) {
+				setMs(getMs() - 10);
+				System.out.println("Тормоз");
+				System.out.println(getMs());
+			}
+			System.out.println("Стоп. Приехали");
+		}
+	}
+
+	@Override
+	public void read() {
+		inp = new Scanner(System.in);
+		super.read();
+		System.out.println("Введите количество пассажирских мест : ");
+		setPlaces(inp.nextDouble());
+		System.out.println("Введите номер маршрута : ");
+		setRoute(inp.nextDouble());
+		System.out.println("Введите цену за билет : ");
+		setPrice(inp.nextDouble());
+	}
+
+	@Override
+	public void write() {
+		super.write();
+		System.out.println(", количество пассажирских мест = " + getPlaces() + ", номер маршрута = " + getRoute()
+				+ ", цена за билет = " + getPrice());
+	}
+}
