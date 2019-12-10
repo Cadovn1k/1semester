@@ -1,0 +1,78 @@
+package laba11;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Schoolkid extends Person {
+	static Scanner inp;
+	private int classnumber;
+	private int subj;
+	private int[] markofsubj;
+
+	public int getClassnumber() {
+		return classnumber;
+	}
+
+	public void setClassnumber(int classnumber) {
+		this.classnumber = classnumber;
+	}
+
+	public int getSubj() {
+		return subj;
+	}
+
+	public void setSubj(int subj) {
+		this.subj = subj;
+	}
+
+	public int[] getMarkofsubj() {
+		return markofsubj;
+	}
+
+	public void setMarkofsubj(int[] markofsubj) {
+		this.markofsubj = markofsubj;
+	}
+
+	public void school() {
+		inp = new Scanner(System.in);
+		super.read();
+		System.out.println("Введите номер класса : ");
+		this.classnumber = inp.nextInt();
+		System.out.println("Введите количество изучаемых предметов : ");
+		this.subj = inp.nextInt();
+		System.out.println("Введите оценки по предметам : ");
+		markofsubj = new int[getSubj()];
+		for (int i = 0; i < markofsubj.length; i++) {
+			markofsubj[i] = inp.nextInt();
+		}
+		graduate();
+	}
+
+	public void graduate() {
+		inp = new Scanner(System.in);
+		double midsubj = 0;
+		for (int i = 0; i < markofsubj.length; i++) {
+			midsubj += markofsubj[i];
+		}
+		midsubj /= getSubj();
+		if (midsubj >= 3 && getClassnumber() < 11) {
+			setClassnumber(getClassnumber() + 1);
+			markofsubj = new int[getSubj()];
+		}
+		if (midsubj >= 3 && getClassnumber() == 11) {
+			setClassnumber(12 + (int) Math.random());
+			System.out.println("Оставить ли ваши оценки в базе, напишите да или нет :");
+			String str = inp.nextLine();
+			if (str.equalsIgnoreCase("нет"))
+				;
+			markofsubj = new int[getSubj()];
+		} else
+			markofsubj = new int[getSubj()];
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", класс = " + classnumber + ", количество изучаемых предметов = " + subj
+				+ ", оценки =" + Arrays.toString(markofsubj);
+	}
+}
