@@ -60,19 +60,18 @@ public class Schoolkid extends Person {
 			markofsubj = new int[getSubj()];
 		}
 		if (midsubj >= 3 && getClassnumber() == 11) {
-			setClassnumber(12 + (int) Math.random());
+			setClassnumber(12 + (int) Math.random() * 10);
 			System.out.println("Оставить ли ваши оценки в базе, напишите да или нет :");
 			String str = inp.nextLine();
 			if (str.equalsIgnoreCase("нет"))
-				;
-			markofsubj = new int[getSubj()];
-		} else
-			markofsubj = new int[getSubj()];
+				markofsubj = new int[getSubj()];
+		}
 	}
 
 	@Override
 	public String toString() {
 		return super.toString() + ", класс = " + classnumber + ", количество изучаемых предметов = " + subj
-				+ ", оценки =" + Arrays.toString(markofsubj);
+				+ ", оценки = " + Arrays.toString(markofsubj);
 	}
 }
+
