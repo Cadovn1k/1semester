@@ -10,7 +10,7 @@ public class Main {
 		Person a = new Person();
 		System.out.println("Проведем тест");
 		a.read();
-		a.write();
+		System.out.println(a.toString());
 		System.out.println("Возраст = " + a.old());
 		System.out.println("Какое количетсов людей, вы будете вводить?");
 		int kolvo = inp.nextInt();
