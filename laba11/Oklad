@@ -1,0 +1,59 @@
+package laba11;
+
+import java.util.Scanner;
+
+public class Oklad extends Person {
+	private double prem;
+	private double okl;
+	static Scanner inp;
+
+	public double getOkl() {
+		return okl;
+	}
+
+	public void setOkl(double okl) {
+		this.okl = okl;
+	}
+
+	public double getPrem() {
+		return prem;
+	}
+
+	public void setPrem(double prem) {
+		if (prem <= 1)
+			this.prem = prem;
+		else
+			this.prem = prem / 100;
+	}
+
+	public Oklad() {
+		super();
+	}
+
+	public void zpandpr() {
+		inp = new Scanner(System.in);
+		super.read();
+		System.out.println("Введите размер оклада :");
+		this.okl = inp.nextDouble();
+		System.out.println("Введите размер % премии : ");
+		this.prem = inp.nextDouble();
+		System.out.println("Получаемая на руки заработная плата = " + itog());
+	}
+
+	public double zpwithpr() {
+		return getOkl() * getPrem() + getOkl();
+	}
+
+	public double nalog() {
+		return 0.13 * zpwithpr();
+	}
+
+	public double itog() {
+		return zpwithpr() - nalog();
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", оклад : " + okl + ", премия :" + prem + ", З/п на руки : " + itog();
+	}
+}
