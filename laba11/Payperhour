@@ -1,0 +1,42 @@
+package laba11;
+
+import java.util.Scanner;
+
+public class Payperhour extends Oklad {
+	private double pay;
+	private double hour;
+	static Scanner inp;
+
+	public double getPay() {
+		return pay;
+	}
+
+	public void setPay(double pay) {
+		this.pay = pay;
+	}
+
+	public double getHour() {
+		return hour;
+	}
+
+	public void setHour(double hour) {
+		this.hour = hour;
+	}
+
+	public void perhour() {
+		inp = new Scanner(System.in);
+		super.read();
+		System.out.println("Введите сумму оплаты за час : ");
+		this.pay = inp.nextDouble();
+		System.out.println("Введите количество проработанных часов за месяц : ");
+		this.hour = inp.nextDouble();
+		setOkl(getPay() * getHour());
+		System.out.println("Введите размер % премии : ");
+		setPrem(inp.nextDouble());
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", оплата за час = " + pay + ", количество проработанных часов = " + hour;
+	}
+}
