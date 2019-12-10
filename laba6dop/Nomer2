@@ -1,0 +1,99 @@
+package laba6dop;
+
+import java.util.Scanner;
+
+public class Nomer2 {
+	static Scanner inp;
+
+	public static void main(String[] args) {
+		inp = new Scanner(System.in);
+		double[] allc = new double[20];
+		double[] a1 = check();
+		allc[0] = fraction(a1);
+		double[] a2 = check();
+		allc[1] = fraction(a2);
+		double[] a3 = check();
+		allc[2] = fraction(a3);
+		double[] a4 = check();
+		allc[3] = fraction(a4);
+		double[] a5 = check();
+		allc[4] = fraction(a5);
+		double[] a6 = check();
+		allc[5] = fraction(a6);
+		double[] a7 = check();
+		allc[6] = fraction(a7);
+		double[] a8 = check();
+		allc[7] = fraction(a8);
+		double[] a9 = check();
+		allc[8] = fraction(a9);
+		double[] a10 = check();
+		allc[9] = fraction(a10);
+		double[] a11 = check();
+		allc[10] = fraction(a11);
+		double[] a12 = check();
+		allc[11] = fraction(a12);
+		double[] a13 = check();
+		allc[12] = fraction(a13);
+		double[] a14 = check();
+		allc[13] = fraction(a14);
+		double[] a15 = check();
+		allc[14] = fraction(a15);
+		double[] a16 = check();
+		allc[15] = fraction(a16);
+		double[] a17 = check();
+		allc[16] = fraction(a17);
+		double[] a18 = check();
+		allc[17] = fraction(a18);
+		double[] a19 = check();
+		allc[18] = fraction(a19);
+		double[] a20 = check();
+		allc[19] = fraction(a20);
+		int pos = 0;
+		if (allc[0] > 0)
+			pos++;
+		double max = allc[0];
+		int maxx = 0;
+
+		for (int i = 1; i < allc.length; i++) {
+			if (allc[0] > 0)
+				pos++;
+			if (allc[i] > max) {
+				max = allc[i];
+				maxx = i;
+			}
+		}
+		System.out.println("Введите интервал от 1 до 20 для вычисления среднеарифметического значения с : ");
+		int begin = inp.nextInt();
+		int end = inp.nextInt();
+		double mid = 0;
+		for (int i = begin; i < end - 1; i++) {
+			mid += allc[i];
+		}
+		System.out.println("Количество положительных с = " + pos + ", номер наибольшего с = " + maxx
+				+ ", среднеарифметическое величин с, из заданного вами интервала = " + mid / (end - begin));
+	}
+
+	public static double[] check() {
+		double[] a = new double[4];
+		System.out.println("Введите значение а : ");
+		a[0] = inp.nextDouble();
+		System.out.println("Введите значение b : ");
+		a[1] = inp.nextDouble();
+		System.out.println("Введите значение z : ");
+		a[2] = inp.nextDouble();
+		System.out.println("Введите значение v : ");
+		a[3] = inp.nextDouble();
+		while (11 * a[3] - 13 * a[1] == 0) {
+			System.out.println("Введены недопустимые значение b и v!");
+			System.out.println("Введите значение b : ");
+			a[1] = inp.nextDouble();
+			System.out.println("Введите значение v : ");
+			a[3] = inp.nextDouble();
+		}
+		return a;
+	}
+
+	public static double fraction(double[] a) {
+		return 15 * a[0] + a[2] / (11 * a[3] - 13 * a[1]);
+	}
+}
