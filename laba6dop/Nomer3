@@ -1,0 +1,29 @@
+package laba6dop;
+
+import java.util.Scanner;
+
+public class Nomer3 {
+	static Scanner inp;
+
+	public static void main(String[] args) {
+		volume();
+	}
+
+	public static void volume() {
+		inp = new Scanner(System.in);
+		String str = "да";
+		while (str.equalsIgnoreCase("да")) {
+			System.out.println("Введите количество Тбайт : ");
+			double tb = inp.nextDouble();
+			double gb = tb * 1000;
+			double mb = gb * 1000;
+			double kb = mb * 1000;
+			double bait = kb * 1000;
+			double bit = kb * 8;
+			System.out.println(tb + " Тбайт = " + gb + " Гбайт = " + mb + " Мбайт = " + kb + " Кбайт = " + bait
+					+ " байт = " + bit + " бит");
+			System.out.println("Хотите продолжить? Ответьте да или нет :");
+			str = inp.next();
+		}
+	}
+}
