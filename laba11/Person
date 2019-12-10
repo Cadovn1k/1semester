@@ -62,12 +62,12 @@ public class Person {
 		this.sex = s.charAt(0);
 	}
 
-	public void write() {
-		System.out.println("Фамилия : " + getSurname());
-		System.out.println("Имя : " + getName());
-		System.out.println("Дата рождения : " + getBirth());
-		System.out.println("Пол : " + getSex());
-	}
+//	public void write() {
+//		System.out.println("Фамилия : " + getSurname());
+//		System.out.println("Имя : " + getName());
+//		System.out.println("Дата рождения : " + getBirth());
+//		System.out.println("Пол : " + getSex());
+//	}
 
 	public int old() {
 		int years = 0;
