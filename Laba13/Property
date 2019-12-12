@@ -1,0 +1,59 @@
+package Laba13;
+import java.util.Scanner;
+public abstract class Property {
+    static Scanner inp;
+    private Person owner;
+    private double cost;
+    private double share;
+
+    public Property() {
+    }
+    public Property(Person owner, double cost, double share){
+        this.owner = owner;
+        this.cost = cost;
+        this.share = share;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public double getShare() {
+        return share;
+    }
+
+    public void setShare(double share) {
+        if ( share > 1 )
+            this.share = share / 100;
+        else this.share = share;
+    }
+    public double propertyvalue(){
+        return getCost() * getShare();
+    }
+    public void read(){
+        inp = new Scanner(System.in);
+        System.out.println("Введите данные о владельце : ");
+        owner.read();
+        System.out.println("Введите общую стоимость : ");
+        setCost(inp.nextDouble());
+        System.out.println("Введите долю владельца, заданная вещестнным числом из (0, 1]");
+        setShare(inp.nextDouble());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", общая стоимость = " + cost + ", доля владельца = " + share + ", стоимость имущества в соответствии с долей владельца = " + propertyvalue();
+    }
+}
