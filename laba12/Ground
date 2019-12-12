@@ -9,6 +9,13 @@ public abstract class Ground extends Car {
 
 	public Ground() {
 	}
+	
+	public Ground(Person owner, double cost, double share, String name, double ms, double boost, double maxms, double power, double run, double wheels){
+        super();
+        this.power = power;
+        this.run = run;
+        this.wheels = wheels;
+    	}
 
 	public double getWheels() {
 		return wheels;
