@@ -12,6 +12,14 @@ public abstract class Car extends Property {
 
 	public Car() {
 	}
+	
+	public Car(Person owner, double cost, double share, String name, double ms, double boost, double maxms){
+        super();
+        this.name = name;
+        this.ms = ms;
+        this.boost = boost;
+        this.maxms = maxms;
+ 	}
 
 	public String getName() {
 		return name;
