@@ -1,0 +1,34 @@
+package Laba13;
+import  java.util.Scanner;
+public class Building extends  Property{
+    static Scanner inp;
+    private String address;
+
+    public Building() {
+    }
+    public Building(String address){
+        super();
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public void read() {
+        inp = new Scanner(System.in);
+        super.read();
+        System.out.println("Введите адрес : ");
+        setAddress(inp.nextLine());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", адрес = " + address;
+    }
+}
