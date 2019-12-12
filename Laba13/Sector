@@ -7,7 +7,7 @@ public class Sector extends Property {
 
     public Sector() {
     }
-    public Sector(double area){
+    public Sector(Person owner, double cost, double share, double area){
         super();
         this.area = area;
     }
