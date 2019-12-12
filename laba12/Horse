@@ -9,6 +9,12 @@ public class Horse extends Car {
 
 	public Horse() {
 	}
+	
+	public Horse(Person owner, double cost, double share, String name, double ms, double boost, double maxms, double age, String suit){
+        super();
+        this.age = age;
+        this.suit = suit;
+        }
 
 	public double getAge() {
 		return age;
