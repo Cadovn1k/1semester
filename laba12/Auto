@@ -11,6 +11,12 @@ public class Auto extends Ground {
 
 	public Auto() {
 	}
+	
+	public Auto(Person owner, double cost, double share, String name, double ms, double boost, double maxms, double power, double run, double wheels, String colour, String model){
+        super();
+        this.colour = colour;
+        this.model = model;
+    	}
 
 	public String getModel() {
 		return model;
