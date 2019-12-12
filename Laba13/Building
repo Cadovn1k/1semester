@@ -6,7 +6,7 @@ public class Building extends  Property{
 
     public Building() {
     }
-    public Building(String address){
+    public Building(Person owner, double cost, double share, String address){
         super();
         this.address = address;
     }
