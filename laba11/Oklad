@@ -28,6 +28,12 @@ public class Oklad extends Person {
 	public Oklad() {
 		super();
 	}
+	
+	public Oklad(double prem,double okl){
+        super();
+        this.prem = prem;
+        this.okl = okl;
+    	}
 
 	public void zpandpr() {
 		inp = new Scanner(System.in);
