@@ -29,7 +29,7 @@ public class Oklad extends Person {
 		super();
 	}
 	
-	public Oklad(double prem,double okl){
+	public Oklad(String surname, String name, LocalDate brith, char sex, double prem,double okl){
         super();
         this.prem = prem;
         this.okl = okl;
