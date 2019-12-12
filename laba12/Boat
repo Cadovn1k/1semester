@@ -11,6 +11,12 @@ public class Boat extends Car {
 	public Boat() {
 
 	}
+	
+	public Boat(Person owner, double cost, double share, String name, double ms, double boost, double maxms, double oars, double power){
+        super();
+        this.oars = oars;
+        this.power = power;
+    	}
 
 	public double getOars() {
 		return oars;
