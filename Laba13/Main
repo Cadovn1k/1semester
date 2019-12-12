@@ -1,5 +1,8 @@
 package Laba13;
 
+
+
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -10,13 +13,18 @@ public class Main {
 
         inp = new Scanner(System.in);
 
-        Person rab1 = new Person();
+        Person rab1 = new Oklad("Кукин", "Иван", LocalDate.of(1950, 4, 1), 'м', 25.0, 50000.0);
+        Property rab11 = new Sector(rab1,500000,0.5,600);
+        Property rab12 = new Building(rab1, 3000000, 0.5, "Ленина, 79");
+        Person rab2 = new Oklad("Кукина", "Людмила", LocalDate.of(1970, 5, 1), 'ж', 0.0, 55000.0);
+        Property rab21 = new Sector(rab2,500000,0.5,600);
+        Property rab22 = new Building(rab1, 3000000, 0.5, "Ленина, 79");
+        Property rab13 = new Sector(rab1, 300000, 1, 1000);
+        Property rab14 = new Horse(rab1, 20000, 1, "лошадь", 20, 2, 30, 3, "желтая");
+        Property rab15 = new Auto(rab1, 10000, 1, "автомобиль", 0, 0, 60, 27, 150000, 4, "синий", "ЗАЗ-965");
+        Property rab16 = new Boat(rab1, 25000, 1, "лодка", 0, 0, 45, 0, 15);
 
-        rab1.read();
-
-        Property Ivan = new Sector();
-
-//        Property[] family = new Property[2];
+//        Property[] family = new Property[];
 
 //        for (int i = 0; i < family.length; i++) {
 
