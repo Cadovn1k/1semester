@@ -74,7 +74,7 @@ public abstract class Ground extends Car {
 	@Override
 	public void write() {
 		System.out.print("Название : " + getName() + ", скорость = " + getMs() + ", ускорение = " + getBoost()
-				+ ", максимальная скорость = " + getMaxms() + ", мощность двигателя = " + getPower() + ", пробег = "
+				+ ", максимальная скорость = " + getMaxms() + ", мощность двигателя = " + getPower() + " л.с., пробег = "
 				+ getRun() + ", количество колес = " + getWheels());
 	}
 }
