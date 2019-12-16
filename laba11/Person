@@ -9,7 +9,7 @@ public class Person {
 	public Person() {
 	}
 	
-	public Person(String surname, String name, LocalDate birth, char sex){
+public Person(String surname, String name, LocalDate birth, char sex){
         this.surname = surname;
         this.name = name;
         this.birth = birth;
