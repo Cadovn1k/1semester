@@ -1,0 +1,63 @@
+package laba13;
+
+import java.util.Scanner;
+
+public class Oklad extends Person {
+	private double prem;
+	private double okl;
+	static Scanner inp;
+
+	public double getOkl() {
+		return okl;
+	}
+
+	public void setOkl(double okl) {
+		this.okl = okl;
+	}
+
+	public double getPrem() {
+		if (prem >= 1)
+			prem /= 100;
+		return prem;
+	}
+
+	public void setPrem(double prem) {
+		this.prem = prem;
+	}
+
+	public Oklad() {
+		super();
+	}
+	
+	public Oklad(String surname, String name, LocalDate brith, char sex, double prem,double okl){
+        super();
+        this.prem = prem;
+        this.okl = okl;
+    	}
+
+	public void zpandpr() {
+		inp = new Scanner(System.in);
+		super.read();
+		System.out.println("Введите размер оклада :");
+		this.okl = inp.nextDouble();
+		System.out.println("Введите размер % премии : ");
+		this.prem = inp.nextDouble();
+	}
+
+	public double zpwithpr() {
+		return getOkl() * getPrem() + getOkl();
+	}
+
+	public double nalog() {
+		return 0.13 * zpwithpr();
+	}
+
+	public double itog() {
+		return zpwithpr() - nalog();
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + ", оклад : " + okl + ", премия : " + prem + "%, З/п на руки : " + itog();
+	}
+}
