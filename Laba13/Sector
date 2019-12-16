@@ -1,5 +1,4 @@
 package Laba13;
-import java.time.LocalDate;
 import java.util.Scanner;
 public class Sector extends Property {
     static Scanner inp;
