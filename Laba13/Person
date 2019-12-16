@@ -1,0 +1,108 @@
+package laba13;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class Person {
+	static Scanner inp;
+
+	public Person() {
+	}
+	
+	public Person(String surname, String name, LocalDate birth, char sex){
+        this.surname = surname;
+        this.name = name;
+        this.birth = birth;
+        this.sex = sex;
+  	}
+
+	private String surname;
+
+	private String name;
+
+	private LocalDate birth;
+
+	private Character sex;
+
+	public Character getSex() {
+		return sex;
+	}
+
+	public void setSex(Character sex) {
+		this.sex = sex;
+	}
+
+	public LocalDate getBirth() {
+		return birth;
+	}
+
+	public void setBirth(LocalDate birth) {
+		this.birth = birth;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void read() {
+		inp = new Scanner(System.in);
+		System.out.println("Введите фамилию : ");
+		this.surname = inp.next();
+		System.out.println("Введите имя :");
+		this.name = inp.next();
+		System.out.println("Введите год, месяц и день рождения : ");
+		this.birth = LocalDate.of(inp.nextInt(), inp.nextInt(), inp.nextInt());
+		System.out.println("Введите пол :");
+		String s = inp.next();
+		this.sex = s.charAt(0);
+	}
+
+//	public void write() {
+//		System.out.println("Фамилия : " + getSurname());
+//		System.out.println("Имя : " + getName());
+//		System.out.println("Дата рождения : " + getBirth());
+//		System.out.println("Пол : " + getSex());
+//	}
+
+	public int old() {
+		int years = 0;
+		LocalDate today = LocalDate.now();
+		int yeartoday = today.getYear();
+		int monthtoday = today.getMonthValue();
+		int daytoday = today.getDayOfMonth();
+		int yearold = birth.getYear();
+		int monthold = birth.getMonthValue();
+		int dayold = birth.getDayOfMonth();
+		if (monthtoday > monthold) {
+			years = yeartoday - yearold;
+		}
+		if (monthtoday < monthold) {
+			years = yeartoday - yearold - 1;
+		}
+		if (monthtoday == monthold) {
+			if (daytoday >= dayold)
+				years = yeartoday - yearold;
+			else
+				years = yeartoday - yearold - 1;
+		}
+		return years;
+	}
+
+	@Override
+	public String toString() {
+		return "Пользователь : " + "фамилия : " + surname + ", " + "имя : " + name + ", " + "дата рождения : " + birth
+				+ ", " + "пол : " + sex;
+	}
+}
