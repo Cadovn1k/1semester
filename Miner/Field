@@ -1,6 +1,6 @@
 package Miner;
 import java.util.Scanner;
-public class Filed {
+public class Field {
     static Scanner inp;
     private String lvl;
     private int n;
