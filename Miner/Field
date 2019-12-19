@@ -1,0 +1,173 @@
+package Miner;
+import java.util.Scanner;
+public class Filed {
+    static Scanner inp;
+    private String lvl;
+    private int n;
+    private int m;
+    private int k;
+    private int act;
+    private String[][] field;
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public int getM() {
+        return m;
+    }
+
+    public void setM(int m) {
+        this.m = m;
+    }
+
+    public int getK() {
+        return k;
+    }
+
+    public void setK(int k) {
+        this.k = k;
+    }
+
+    public int getAct() {
+        return act;
+    }
+
+    public Filed() {
+    }
+
+    public void setAct(int act) {
+        this.act = act;
+    }
+
+    public String[][] getField() {
+        return field;
+    }
+
+    public void setField(String[][] field) {
+        this.field = field;
+    }
+
+    public String getLvl() {
+        return lvl;
+    }
+
+    public void setLvl(String lvl) {
+        this.lvl = lvl;
+    }
+
+    public void size(){
+        inp = new Scanner(System.in);
+        System.out.println("Выберите сложность игры : новичок, любитель или профи");
+        this.lvl = inp.next();
+        if ( getLvl().equalsIgnoreCase("новичок") ) {
+            this.n = 9;
+            this.m = 9;
+            this.k = 10;
+        }
+        if (getLvl().equalsIgnoreCase("любитель")){
+            this.n = 16;
+            this.m = 16;
+            this.k = 40;
+        }
+        if (getLvl().equalsIgnoreCase("профи")){
+            this.n = 16;
+            this.m = 30;
+            this.k = 99;
+        }
+    }
+
+    public void gamefield(){
+        this.field = new String [n][m];
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < m; j++) {
+                field[i][j] = "0";
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            int n1 = (int)(Math.random() * n);
+            int m1 = (int)(Math.random() * m);
+            if ( field[n1][m1].equals("0") )
+            field[n1][m1] = "*";
+            else {
+                while( field[n1][m1].equals("*") ){
+                    n1 = (int)(Math.random() * n);
+                    m1 = (int)(Math.random() * m);
+                }
+                field[n1][m1] = "*";
+            }
+        }
+    }
+
+    public void actions(){
+        inp = new Scanner(System.in);
+        System.out.println("Выберите действие : ");
+        System.out.println("0 - закончить игру");
+        System.out.println("1 - отметить мину");
+        System.out.println("2 - открыть мину");
+        this.act = inp.nextInt();
+//        while ( getAct() != 0 ){
+//
+//        }
+    }
+    public void thegame(){
+        inp = new Scanner(System.in);
+        int nn;
+        int mm;
+        String [][] nullfield = new String[getN()][getM()];
+        for (int i = 0; i < nullfield.length; i++) {
+            for (int j = 0; j < m; j++) {
+                field[i][j] = "0";
+            }
+        }
+        switch (getAct()) {
+            case 1 : {
+                System.out.print("Введите № строки = ");
+                nn = inp.nextInt();
+                System.out.print("Введите № столбца = ");
+                mm = inp.nextInt();
+                nullfield[nn][mm] = "!";
+            }
+            break;
+            case 2 : {
+                System.out.print("Введите № строки = ");
+                nn = inp.nextInt();
+                System.out.print("Введите № столбца = ");
+                mm = inp.nextInt();
+                if ( nullfield[nn][mm].equals("0") ){
+                    int m = 0;
+                    if ( nn > 1 && nn < n && mm > 1 && mm < m) {
+                        for (int i = nn - 1; i < nn + 1; i++) {
+                            for (int j = mm - 1; j < mm + 1; j++) {
+                                if (field[i][j] == "*")
+                                    m++;
+                            }
+                        }
+                    }
+                    if ( nn == 1 &&  mm > 1 && mm < m ){
+                        for (int i = nn; i < nn + 1; i++) {
+                            for (int j = mm - 1; j < mm + 1; j++) {
+                                if (field[i][j] == "*")
+                                    m++;
+                            }
+                        }
+                    }
+                    if ( nn == 1 && mm == 1 ){
+                        for (int i = nn; i < nn + 1; i++) {
+                            for (int j = mm; j < mm + 1; j++) {
+                                if (field[i][j] == "*")
+                                    m++;
+                            }
+                        }
+                    }
+                }
+                if ( nullfield[nn][mm].equals("*") )
+                    System.out.println("ВЫ ПРОИГРАЛИ");
+            }
+        }
+    }
+}
