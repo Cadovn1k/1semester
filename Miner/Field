@@ -37,7 +37,7 @@ public class Field {
         return act;
     }
 
-    public Filed() {
+    public Field() {
     }
 
     public void setAct(int act) {
