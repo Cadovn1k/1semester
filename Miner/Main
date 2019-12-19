@@ -1,0 +1,8 @@
+package Miner;
+import java.util.Scanner;
+public class Main {
+    static Scanner inp;
+    public static void main(String[] args){
+
+    }
+}
