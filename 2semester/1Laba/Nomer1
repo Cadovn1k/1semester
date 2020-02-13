@@ -1,0 +1,68 @@
+package Laba1;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class Nomer1 {
+    static Scanner inp = new Scanner(System.in);
+    public static void main(String[] args) {
+        try {
+            System.out.println("Введите размер массива ");
+            int n = inp.nextInt();
+            double mas [] = new double [n];
+            write(mas,mas.length / 2);
+            double mas1 [] = new double [n - n / 2];
+            randomwrite(mas1, mas1.length);
+            int k = 0;
+            for (int i = 0; i < mas.length; i++) {
+                if ( mas[i] == 0 ){
+                    mas[i] = mas1[k];
+                    k++;
+                }
+            }
+            for (int i = 0; i < mas.length; i++) {
+                System.out.print(mas[i] + " ");
+            }
+
+            double masy [] = new double [n];
+            for (int i = 0; i < masy.length; i++) {
+                masy[i] = func(mas[i]);
+            }
+
+        } catch (InputMismatchException e){
+            System.out.println("Необходимо ввести число");
+        } catch (ArithmeticException e){
+            System.out.println("Расчет не получается");
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Произошел выход за границы массива. Введенные данные не корректны!");
+        }
+    }
+
+    public static double func(double x){
+        int a = (int)( -50 + Math.random() * 100);
+        double f = 0;
+        if ( x < 0 )
+            f = x + Math.pow(Math.sin( (1 / x - a) + 4 ), 2);
+        if ( x >= 0 )
+            f = a * x / Math.sqrt( a * a - x * x );
+        return f;
+    }
+
+    public static double[] write(double ms [],int k){
+        for (int i = 0; i < k; i++) {
+            System.out.println("Введите число в массив ");
+            ms[i] = inp.nextDouble();
+        }
+        return ms;
+    }
+
+    public static double[] randomwrite(double ms [], int k){
+        System.out.println("Введите левую границу диапазона ");
+        int a = inp.nextInt();
+        System.out.println("Введите правую границу диапазона ");
+        int b = inp.nextInt();
+        for (int i = 0; i < k; i++) {
+            ms[i] = a + Math.random() * b;
+        }
+        return ms;
+    }
+
+}
